@@ -1,8 +1,15 @@
-const app = require('./app');
+const mongoose = require("mongoose");
+
+const app = require("./app");
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  /* eslint-disable no-console */
-  console.log(`Listening: http://localhost:${port}`);
-  /* eslint-enable no-console */
-});
+mongoose
+  .connect("mongodb://localhost:27017/raftlabs", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then((res) => {
+    app.listen(port, () => {
+      console.log(`Listening: http://localhost:${port}`);
+    });
+  });
