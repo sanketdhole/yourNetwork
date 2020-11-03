@@ -9,6 +9,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then((res) => {
+    mongoose.set("useFindAndModify", false);
     app.listen(port, () => {
       console.log(`Listening: http://localhost:${port}`);
     });

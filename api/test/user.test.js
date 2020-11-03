@@ -25,7 +25,17 @@ describe("User api test", () => {
     });
   });
 
-  describe("POST /user/create", (done) => {
+  describe("GET /user/find", () => {
+    it("responds with error message", (done) => {
+      requestApp
+        .get("/user/find?name=unlistedname")
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(404, done);
+    });
+  });
+
+  describe("POST /user/create", () => {
     it("responds with success after creating document", (done) => {
       requestApp
         .post("/user/create")
@@ -33,6 +43,17 @@ describe("User api test", () => {
         .set("Accept", "application/json")
         .expect("Content-Type", /json/)
         .expect(201, done);
+    });
+  });
+
+  describe("POST /user/create", () => {
+    it("responds with 400 bad request", (done) => {
+      requestApp
+        .post("/user/create")
+        .send({ randomKey: "randomValue" })
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(400, done);
     });
   });
 });

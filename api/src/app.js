@@ -6,8 +6,8 @@ const cors = require("cors");
 require("dotenv").config();
 
 const middlewares = require("./middlewares");
-const userRouter = require("./api/users");
-const relationRouter = require("./api/relationship");
+const userRouter = require("./api/user");
+const relationRouter = require("./api/relation");
 
 const app = express();
 
