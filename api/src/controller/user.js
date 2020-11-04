@@ -1,8 +1,9 @@
 const { validationResult } = require("express-validator");
 
 const User = require("../models/user");
+const Relation = require("../models/relation");
 
-module.exports.getUser = (req, res, next) => {
+module.exports.findUserByName = (req, res, next) => {
   /*
     Route:
       GET /user/find
@@ -44,12 +45,13 @@ module.exports.createUser = (req, res, next) => {
     next(new Error(error.errors[0].msg));
     return;
   }
-  User.create({ name: req.body.name, relationship: [] }).then((result, err) => {
-    if (err) {
-      next(new Error("Error creating User"));
-    } else {
+  User.create({ name: req.body.name })
+    .then((result, err) => {
+      return Relation.create({ userId: result._id, relations: [] });
+    })
+    .then((result, err) => {
       res.status(201);
-      res.json(result);
-    }
-  });
+      res.json({ result: "User Creation successful!" });
+    })
+    .catch(next);
 };

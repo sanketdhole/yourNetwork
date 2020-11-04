@@ -17,7 +17,12 @@ router.post(
 
 router.post(
   "/find",
-  [body("user1._id").not().isEmpty(), body("user2._id").not().isEmpty()],
+  [
+    body("user1").not().isEmpty(),
+    body("user1._id").not().isEmpty(),
+    body("user2").not().isEmpty(),
+    body("user2._id").not().isEmpty(),
+  ],
   RelationController.findRelation
 );
 

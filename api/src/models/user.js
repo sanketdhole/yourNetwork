@@ -5,15 +5,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     requried: true,
   },
-  relations: [
-    {
-      user: mongoose.Schema.Types.ObjectId,
-      type: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
 });
 
 UserSchema.indexes({ name: 1 });

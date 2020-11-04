@@ -8,7 +8,7 @@ const router = new express.Router();
 router.get(
   "/find",
   [query("name").not().isEmpty().trim().withMessage("Name Field is empty")],
-  userController.getUser
+  userController.findUserByName
 );
 
 router.post(
