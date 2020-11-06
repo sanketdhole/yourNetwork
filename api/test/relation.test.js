@@ -11,6 +11,7 @@ describe("Relationship api test", () => {
   before(async () => {
     /*
       Using the same database connection and instance of app
+      for all tests of relation api
     */
     await mongoose.connect("mongodb://localhost:27017/raftlabs", {
       useNewUrlParser: true,
@@ -29,7 +30,7 @@ describe("Relationship api test", () => {
         .send({
           user1,
           user2,
-          type: "Friends",
+          type: "friend",
         })
         .set("Content-Type", "application/json")
         .expect("Content-Type", /json/)
@@ -47,7 +48,7 @@ describe("Relationship api test", () => {
         })
         .set("Content-Type", "application/json")
         .expect("Content-Type", /json/)
-        .expect(201, [user1, user2], done);
+        .expect(200, done);
     });
   });
 });
