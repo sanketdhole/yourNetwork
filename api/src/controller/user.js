@@ -50,8 +50,7 @@ module.exports.createUser = (req, res, next) => {
       return Relation.create({ userId: result._id, relations: [] });
     })
     .then((result, err) => {
-      res.status(201);
-      res.json({ result: "User Creation successful!" });
+      res.status(201).json({ result: "User Creation successful!" });
     })
     .catch(next);
 };

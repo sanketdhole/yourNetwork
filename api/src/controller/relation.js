@@ -47,8 +47,7 @@ module.exports.createRelation = (req, res, next) => {
       );
     })
     .then(() => {
-      res.status(200);
-      res.json({ result: "Relation mapped!" });
+      res.status(201).json({ result: "Relation mapped!" });
     })
     .catch(next);
 };
@@ -69,14 +68,16 @@ module.exports.findRelation = (req, res, next) => {
   // then return the list of all the users from user1 to user2 in that path
   let user1 = req.body.user1._id;
   let user2 = req.body.user2._id;
+  let order = null;
   findPath(user1, user2)
     .then((path) => {
+      order = path;
       return User.find({
         _id: { $in: path },
       });
     })
     .then((userDocumensts) => {
-      res.json({ path: userDocumensts });
+      res.json({ path: userDocumensts, orderIds: order });
     })
     .catch((error) => {
       res.statsCode = 404;

@@ -4,7 +4,7 @@ let relations = {
   father: "child",
   "grand father": "grand son",
   "grand son": "grand father",
-  friend: "friend",
+  friends: "friends",
 };
 
 function findOppositeRelation(relation) {
