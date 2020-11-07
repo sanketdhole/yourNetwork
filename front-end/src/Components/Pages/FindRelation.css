@@ -1,0 +1,74 @@
+.find-relation-button {
+  width: 17em;
+  border-radius: 2em;
+  text-decoration: none;
+  border: 1.5px solid #0033ff;
+  background-color: #fff111;
+  padding: 5px 10px 5px 10px;
+  margin: 5px;
+}
+
+.find-relation-button:focus {
+  outline: none;
+}
+
+.result {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.show {
+  display: flex;
+}
+
+.result-box-parent {
+  display: grid;
+  grid-template-columns: 3em auto 3em;
+  padding: 2px;
+  /* border: 1px solid black; */
+}
+
+.result-box {
+  display: flex;
+  width: 15em;
+  height: 15em;
+  background-color: #fff;
+  border-radius: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid #0033ff;
+}
+
+.result-box > h2 {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  /* color: white; */
+}
+
+.result-avatar {
+  display: block;
+  height: 5rem;
+}
+
+.arrow {
+  height: 2em;
+  margin: auto;
+  background-color: #fff111;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.arrow-inactive {
+  pointer-events: none;
+}

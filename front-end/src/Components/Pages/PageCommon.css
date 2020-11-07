@@ -1,0 +1,37 @@
+.page-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  position: relative;
+}
+
+.page-panel {
+  display: flex;
+  border: 1px solid #0033ff;
+  padding: 4em;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2em;
+  color: #0033ff;
+}
+.success {
+  background-color: #11ff11;
+}
+
+.failure {
+  background-color: #ff5555;
+}
+
+/* .page-panel:hover {
+  box-shadow: 10px 10px 5px grey;
+  transform: translateY(-5px);
+} */
+
+.page-img {
+  display: block;
+  height: 10em;
+  width: auto;
+  margin: 4px;
+}

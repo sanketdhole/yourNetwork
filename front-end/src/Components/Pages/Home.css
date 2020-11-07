@@ -1,0 +1,7 @@
+.home-parent {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  align-items: center;
+}
