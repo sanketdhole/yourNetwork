@@ -9,7 +9,7 @@ describe("User api test", () => {
     /*
     Using the same connection and instance of app
     */
-    return mongoose.connect("mongodb://localhost:27017/raftlabs", {
+    return mongoose.connect(process.env.TEST_DB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

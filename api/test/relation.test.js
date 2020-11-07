@@ -13,7 +13,7 @@ describe("Relationship api test", () => {
       Using the same database connection and instance of app
       for all tests of relation api
     */
-    await mongoose.connect("mongodb://localhost:27017/raftlabs", {
+    await mongoose.connect(process.env.TEST_DB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -34,7 +34,7 @@ describe("Relationship api test", () => {
         })
         .set("Content-Type", "application/json")
         .expect("Content-Type", /json/)
-        .expect(200, { result: "Relation mapped!" }, done);
+        .expect(201, { result: "Relation mapped!" }, done);
     });
   });
 
