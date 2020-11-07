@@ -56,7 +56,7 @@ Also finding realtions between users would require to lot of data to be stored o
 Again to reduce failure rate when any of those machine goes down we could have backup machines which could take their place as faking machine ids.
 
 ### Load Balancing
-We could have multiple load balaers between
+We could have multiple load balancers between
 - Clent and Application Server
 - Application Server and database
 
