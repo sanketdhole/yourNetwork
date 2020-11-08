@@ -45,12 +45,18 @@ module.exports.createUser = (req, res, next) => {
     next(new Error(error.errors[0].msg));
     return;
   }
-  User.create({ name: req.body.name })
-    .then((result, err) => {
-      return Relation.create({ userId: result._id, relations: [] });
-    })
-    .then((result, err) => {
-      res.status(201).json({ result: "User Creation successful!" });
-    })
-    .catch(next);
+  User.findOne({ name: req.body.name }).then((result, err) => {
+    if (result == null) {
+      User.create({ name: req.body.name })
+        .then((result, err) => {
+          return Relation.create({ userId: result._id, relations: [] });
+        })
+        .then((result, err) => {
+          res.status(201).json({ result: "User Creation successful!" });
+        })
+        .catch(next);
+    } else {
+      res.status(400).json({ result: "User Already Exists" });
+    }
+  });
 };
