@@ -48,7 +48,7 @@ function FindRelation(props) {
     if (firstUser == null || secondUser === null) {
       return;
     }
-    fetch("http://localhost:5000/relation/find", {
+    fetch("http://18.190.37.127/api/relation/find", {
       method: "POST",
       body: JSON.stringify({
         user1: firstUser,

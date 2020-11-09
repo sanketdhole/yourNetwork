@@ -28,7 +28,7 @@ function DefineRelation(props) {
     if (firstUser === null || secondUser === null || relation === "Relation") {
       return;
     }
-    fetch("http://localhost:5000/relation/create", {
+    fetch("http://18.190.37.127/api/relation/create", {
       method: "POST",
       body: JSON.stringify({
         user1: firstUser,

@@ -13,7 +13,7 @@ function UserSearch(props) {
   };
 
   let searchUser = () => {
-    fetch(`http://localhost:5000/user/find?name=${name.toLowerCase()}`)
+    fetch(`http://18.190.37.127/api/user/find?name=${name.toLowerCase()}`)
       .then((res) => {
         if (res.status === 404) {
           throw new Error("No User Found");

@@ -19,7 +19,7 @@ function CreateUser(props) {
     let reqBody = {
       name: name.toLowerCase(),
     };
-    fetch("http://localhost:5000/user/create", {
+    fetch("http://18.190.37.127/api/user/create", {
       method: "POST",
       body: JSON.stringify(reqBody),
       headers: {
